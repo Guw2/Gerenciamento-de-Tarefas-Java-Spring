@@ -23,23 +23,23 @@ public class TaskController {
 	}
 		
 	@GetMapping
-	public ResponseEntity<List<Task>> findAll(){
-		return new ResponseEntity<List<Task>>(service.findAllTasks(), HttpStatus.OK);
+	public ResponseEntity<List<TaskDTO>> findAll(){
+		return new ResponseEntity<List<TaskDTO>>(service.findAllTasks(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Task> findById(@PathVariable Long id){
-		return new ResponseEntity<Task>(service.findTaskById(id), HttpStatus.OK);
+	public ResponseEntity<TaskDTO> findById(@PathVariable Long id){
+		return new ResponseEntity<TaskDTO>(service.findTaskById(id), HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Task> create(@RequestBody Task t){
-		return new ResponseEntity<Task>(service.createTask(t), HttpStatus.CREATED);
+	public ResponseEntity<TaskDTO> create(@RequestBody Task t){
+		return new ResponseEntity<TaskDTO>(service.createTask(t), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/{id}")
-	public ResponseEntity<Task> update(@RequestBody Task t, @PathVariable Long id){
-		return new ResponseEntity<Task>(service.updateTask(id, t), HttpStatus.ACCEPTED);
+	public ResponseEntity<TaskDTO> update(@RequestBody Task t, @PathVariable Long id){
+		return new ResponseEntity<TaskDTO>(service.updateTask(id, t), HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/{id}")

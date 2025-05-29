@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class Task {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
 	private String title;
@@ -21,17 +21,16 @@ public class Task {
 	@Column
 	private TaskStatus status;
 	@Column
-	private LocalDateTime creationDate;
+	private LocalDateTime creationDate = LocalDateTime.now();
 	
 	public Task() {
 	}
 
-	public Task(Long id, String title, String description, TaskStatus status, LocalDateTime creationDate) {
+	public Task(Long id, String title, String description, TaskStatus status) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.status = status;
-		this.creationDate = creationDate;
 	}
 
 	public Long getId() {
@@ -68,10 +67,6 @@ public class Task {
 
 	public LocalDateTime getCreationDate() {
 		return creationDate;
-	}
-
-	public void setCreationDate(LocalDateTime creationDate) {
-		this.creationDate = creationDate;
 	}
 
 	@Override

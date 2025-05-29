@@ -8,34 +8,34 @@ import org.springframework.stereotype.Service;
 public class TaskService {
 
 	private final TaskRepository repo;
-	
+		
 	public TaskService(TaskRepository repo) {
 		this.repo = repo;
 	}
 
-	public List<Task> findAllTasks() {
-		return repo.findAll();
+	public List<TaskDTO> findAllTasks() {
+		return repo.findAll().stream().map(x -> TaskMapper.taskToDto(x)).toList();
 	}
 	
-	public Task findTaskById(Long id) {
-		return repo.findById(id)
+	public TaskDTO findTaskById(Long id) {
+		Task t = repo.findById(id)
 				.orElseThrow(() -> new RuntimeException("Task Not Found."));
+		return TaskMapper.taskToDto(t);
 	}
 	
-	public Task createTask(Task t) {
-		return repo.save(t);
+	public TaskDTO createTask(Task t) {
+		return TaskMapper.taskToDto(repo.save(t));
 	}
 	
-	public Task updateTask(Long id, Task t) {
+	public TaskDTO updateTask(Long id, Task t) {
 		Task task = new Task(
 				id,
 				t.getTitle(),
 				t.getDescription(),
-				t.getStatus(),
-				t.getCreationDate()
+				t.getStatus()
 				);
 		
-		return repo.save(task);
+		return TaskMapper.taskToDto(repo.save(task));
 	}
 	
 	public void deleteTaskById(Long id) {
