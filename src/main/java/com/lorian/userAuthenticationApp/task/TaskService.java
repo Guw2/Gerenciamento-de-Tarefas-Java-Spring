@@ -2,6 +2,8 @@ package com.lorian.userAuthenticationApp.task;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,8 +15,12 @@ public class TaskService {
 		this.repo = repo;
 	}
 
-	public List<TaskDTO> findAllTasks() {
-		return repo.findAll().stream().map(x -> TaskMapper.taskToDto(x)).toList();
+	public Page<TaskDTO> findAllTasks(Pageable pageable) {
+		return repo.findAll(pageable).map(x -> TaskMapper.taskToDto(x));
+	}
+	
+	public Page<TaskDTO> findTaskByStatus(TaskStatus status, Pageable pageable){
+		return repo.findByStatus(status, pageable).map(x -> TaskMapper.taskToDto(x));
 	}
 	
 	public TaskDTO findTaskById(Long id) {
