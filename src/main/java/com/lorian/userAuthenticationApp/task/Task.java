@@ -2,8 +2,6 @@ package com.lorian.userAuthenticationApp.task;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +13,7 @@ public class Task {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+	private Long id;
 	@Column
 	private String title;
 	@Column
@@ -28,7 +26,7 @@ public class Task {
 	public Task() {
 	}
 
-	public Task(UUID id, String title, String description, TaskStatus status, LocalDateTime creationDate) {
+	public Task(Long id, String title, String description, TaskStatus status, LocalDateTime creationDate) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -36,11 +34,11 @@ public class Task {
 		this.creationDate = creationDate;
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

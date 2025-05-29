@@ -1,7 +1,6 @@
 package com.lorian.userAuthenticationApp.task;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ public class TaskService {
 		return repo.findAll();
 	}
 	
-	public Task findTaskById(UUID id) {
+	public Task findTaskById(Long id) {
 		return repo.findById(id)
 				.orElseThrow(() -> new RuntimeException("Task Not Found."));
 	}
@@ -27,7 +26,7 @@ public class TaskService {
 		return repo.save(t);
 	}
 	
-	public Task updateTask(UUID id, Task t) {
+	public Task updateTask(Long id, Task t) {
 		Task task = new Task(
 				id,
 				t.getTitle(),
@@ -39,7 +38,7 @@ public class TaskService {
 		return repo.save(task);
 	}
 	
-	public void deleteTaskById(UUID id) {
+	public void deleteTaskById(Long id) {
 		repo.deleteById(id);
 	}
 	
