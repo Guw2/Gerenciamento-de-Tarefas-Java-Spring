@@ -4,6 +4,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.lorian.userAuthenticationApp.exception.task_related.TaskIdNotFoundException;
+
 @Service
 public class TaskService {
 
@@ -39,7 +41,11 @@ public class TaskService {
 	}
 	
 	public void deleteTaskById(Long id) {
-		repo.deleteById(id);
+		if(repo.findById(id).isPresent()) {
+			repo.deleteById(id);
+		}else {
+			throw new TaskIdNotFoundException("This ID Does Not Exist.");
+		}
 	}
 	
 }
