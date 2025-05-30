@@ -1,7 +1,5 @@
 package com.lorian.userAuthenticationApp.task;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -42,13 +40,13 @@ public class TaskController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<TaskDTO> create(@RequestBody Task t){
-		return new ResponseEntity<TaskDTO>(service.createTask(t), HttpStatus.CREATED);
+	public ResponseEntity<TaskDTO> create(@RequestBody TaskDTO dto){
+		return new ResponseEntity<TaskDTO>(service.createTask(dto), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/{id}")
-	public ResponseEntity<TaskDTO> update(@RequestBody Task t, @PathVariable Long id){
-		return new ResponseEntity<TaskDTO>(service.updateTask(id, t), HttpStatus.ACCEPTED);
+	public ResponseEntity<TaskDTO> update(@RequestBody TaskDTO dto, @PathVariable Long id){
+		return new ResponseEntity<TaskDTO>(service.updateTask(id, dto), HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/{id}")
