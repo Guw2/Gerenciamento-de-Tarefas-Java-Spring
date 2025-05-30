@@ -1,5 +1,11 @@
 package com.lorian.userAuthenticationApp.task;
 
-public record TaskDTO(String title, String description, TaskStatus status) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record TaskDTO(
+		@NotBlank String title,
+		@NotBlank String description,
+		@NotNull TaskStatus status) {
 
 }

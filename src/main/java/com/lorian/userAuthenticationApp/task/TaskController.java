@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/task")
 public class TaskController {
@@ -40,12 +42,12 @@ public class TaskController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<TaskDTO> create(@RequestBody TaskDTO dto){
+	public ResponseEntity<TaskDTO> create(@RequestBody @Valid TaskDTO dto){
 		return new ResponseEntity<TaskDTO>(service.createTask(dto), HttpStatus.CREATED);
 	}
 	
 	@PostMapping("/{id}")
-	public ResponseEntity<TaskDTO> update(@RequestBody TaskDTO dto, @PathVariable Long id){
+	public ResponseEntity<TaskDTO> update(@RequestBody @Valid TaskDTO dto, @PathVariable Long id){
 		return new ResponseEntity<TaskDTO>(service.updateTask(id, dto), HttpStatus.ACCEPTED);
 	}
 	
