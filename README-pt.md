@@ -50,7 +50,8 @@ Uma API RESTful construída com Spring Boot para gerenciar tarefas de forma efic
 
 ```bash  
 git clone https://github.com/Guw2/TaskManagementApp.git  
-cd TaskManagementApp  
+cd TaskManagementApp
+docker build -t taskmanagementapp .  
 docker-compose up --build  
 ```  
 

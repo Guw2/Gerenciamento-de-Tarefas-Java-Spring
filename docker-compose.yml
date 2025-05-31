@@ -9,13 +9,19 @@ services:
             - "3306:3306"
         volumes:
             - data:/var/lib/mysql
-
+        healthcheck:
+              test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+              interval: 10s
+              timeout: 5s
+              retries: 5
+    
     app:
         image: taskmanagementapp
         ports:
             - "8080:8080"
         depends_on:
-            - mysql
+            mysql:
+                condition: service_healthy
         environment:
             SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/SS_user_auth?useTimezone=True&serverTimezone=UTC
             SPRING_DATASOURCE_USERNAME: root
