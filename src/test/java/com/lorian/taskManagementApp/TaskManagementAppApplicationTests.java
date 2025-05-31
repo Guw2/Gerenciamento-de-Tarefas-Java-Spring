@@ -1,10 +1,10 @@
-package com.lorian.userAuthenticationApp;
+package com.lorian.taskManagementApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserAuthenticationAppApplicationTests {
+class TaskManagementAppApplicationTests {
 
 	@Test
 	void contextLoads() {

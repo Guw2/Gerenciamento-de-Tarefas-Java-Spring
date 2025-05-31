@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.task;
+package com.lorian.taskManagementApp.task;
 
 import org.springframework.stereotype.Component;
 

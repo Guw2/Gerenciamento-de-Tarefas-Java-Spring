@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.exception.task_related;
+package com.lorian.taskManagementApp.exception.task_related;
 
 public class TaskIdNotFoundException extends RuntimeException{
 

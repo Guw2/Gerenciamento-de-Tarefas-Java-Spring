@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.exception;
+package com.lorian.taskManagementApp.exception;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.lorian.userAuthenticationApp.exception.task_related.TaskIdNotFoundException;
+import com.lorian.taskManagementApp.exception.task_related.TaskIdNotFoundException;
 
 @ControllerAdvice
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler{

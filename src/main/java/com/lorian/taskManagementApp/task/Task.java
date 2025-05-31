@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.task;
+package com.lorian.taskManagementApp.task;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

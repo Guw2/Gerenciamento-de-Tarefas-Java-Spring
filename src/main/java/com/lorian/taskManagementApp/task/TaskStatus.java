@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.task;
+package com.lorian.taskManagementApp.task;
 
 public enum TaskStatus {
 	PENDING,

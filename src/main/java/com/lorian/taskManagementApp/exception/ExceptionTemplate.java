@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.exception;
+package com.lorian.taskManagementApp.exception;
 
 import java.time.Instant;
 import java.util.Objects;

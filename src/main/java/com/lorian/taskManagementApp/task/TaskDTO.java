@@ -1,4 +1,4 @@
-package com.lorian.userAuthenticationApp.task;
+package com.lorian.taskManagementApp.task;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
