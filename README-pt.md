@@ -63,14 +63,14 @@ docker-compose up --build
 
 1. Crie o banco de dados MySQL:  
 ```sql  
-CREATE DATABASE SS_user_auth;  
+CREATE DATABASE taskmanagementdb;  
 ```  
 
   
 
 2. Atualize `application.properties`:  
 ```properties  
-spring.datasource.url=jdbc:mysql://localhost:3306/SS_user_auth?useTimezone=true&serverTimezone=UTC  
+spring.datasource.url=jdbc:mysql://localhost:3306/taskmanagementdb?useTimezone=true&serverTimezone=UTC  
 spring.datasource.username=root  
 spring.datasource.password=root  
 ```  

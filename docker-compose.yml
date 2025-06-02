@@ -4,16 +4,16 @@ services:
         container_name: mysql-container
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: SS_user_auth
+            MYSQL_DATABASE: taskmanagementdb
         ports:
             - "3306:3306"
         volumes:
             - data:/var/lib/mysql
         healthcheck:
               test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-              interval: 10s
-              timeout: 5s
-              retries: 5
+              interval: 30s
+              timeout: 15s
+              retries: 10
     
     app:
         image: taskmanagementapp
@@ -23,7 +23,7 @@ services:
             mysql:
                 condition: service_healthy
         environment:
-            SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/SS_user_auth?useTimezone=True&serverTimezone=UTC
+            SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/taskmanagementdb?useTimezone=True&serverTimezone=UTC
             SPRING_DATASOURCE_USERNAME: root
             SPRING_DATASOURCE_PASSWORD: root
 volumes:
