@@ -11,9 +11,9 @@ services:
             - data:/var/lib/mysql
         healthcheck:
               test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-              interval: 30s
-              timeout: 15s
-              retries: 10
+              interval: 5s
+              timeout: 5s
+              retries: 5
     
     app:
         image: taskmanagementapp
@@ -26,5 +26,6 @@ services:
             SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/taskmanagementdb?useTimezone=True&serverTimezone=UTC
             SPRING_DATASOURCE_USERNAME: root
             SPRING_DATASOURCE_PASSWORD: root
+        restart: on-failure
 volumes:
     data:
