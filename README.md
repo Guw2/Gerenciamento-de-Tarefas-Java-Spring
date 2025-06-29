@@ -1,10 +1,10 @@
 
 # --- Task Management API ---  
 
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.0-green)  
-![Java](https://img.shields.io/badge/Java-21-blue)  
-![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)  
-![Docker](https://img.shields.io/badge/Docker-✓-lightblue)  
+[![Java](https://img.shields.io/badge/Java-21-%23ED8B00?logo=openjdk)](https://openjdk.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-%236DB33F?logo=spring)](https://spring.io/)
+[![MySQL](https://img.shields.io/badge/MySQL-8-%234479A1?logo=mysql)](https://www.mysql.com/)
+![Docker](https://img.shields.io/badge/Docker-✓-lightblue)
 
 A RESTful API built with Spring Boot for efficient task management. This project demonstrates clean architecture, robust validation, pagination, filtering, and containerization using Docker.  
 
